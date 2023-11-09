@@ -71,10 +71,10 @@ WebServer::WebServer( const Parameters & _parameters, const Services & _services
 Enum< WebServer::eStatus > & WebServer::Statuses()
 {
     static Enum< eStatus > statuses{ {
-        EnumValue( eStatus::ok ),
-        EnumValue( eStatus::notFound ),
-        EnumValue( eStatus::unprocessableEntity ),
-        EnumValue( eStatus::internalServerError ),
+        EnumValue( eStatus, ok ),
+        EnumValue( eStatus, notFound ),
+        EnumValue( eStatus, unprocessableEntity ),
+        EnumValue( eStatus, internalServerError ),
     } };
     return statuses;
 }

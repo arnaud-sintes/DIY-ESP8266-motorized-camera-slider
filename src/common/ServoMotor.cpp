@@ -22,8 +22,8 @@ ServoMotor::ServoMotor( const Parameters & _parameters )
 Enum< ServoMotor::eDirection > & ServoMotor::Directions()
 {
     static Enum< eDirection > directions{ {
-        EnumValue( eDirection::forward ),
-        EnumValue( eDirection::backward ),
+        EnumValue( eDirection, forward ),
+        EnumValue( eDirection, backward ),
     } };
     return directions;
 }

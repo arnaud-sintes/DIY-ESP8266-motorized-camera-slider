@@ -1,9 +1,6 @@
 #include "Program.h"
 
-
 // TODO fix servomotor rotation
-// TODO better UI
-
 
 Program program;
 
@@ -21,7 +18,7 @@ void setup()
             .ssid{ "slider" },
             .password{ "12345678" },
             .ip{ IPAddress( 192, 168, 1, 1 ) },
-            .domain{ "slider.com" }, // TODO test without .com
+            .domain{ "slider" },
         },
         .webServer{
             .port{ 80 }

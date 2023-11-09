@@ -1,5 +1,5 @@
 var data = {
-    action: true,
+    run: false,
     speed: 1,
     direction: true,
 };
@@ -7,26 +7,26 @@ var data = {
 
 function OnLoad()
 {
+    // run
+    const run = _ => fetch( "/set?direction=" + directionButton.textContent + "&speed=" + data.speed, { method: "post" } );
+
     // "set" button:
     const setButton = document.getElementById( "setButton" );
-    const settings = document.getElementById( "settings" );
     const updateSet = _ =>
     {
-        setButton.textContent = [ "run", "stop" ][ data.action ? 0 : 1 ];
+        setButton.textContent = [ "run", "stop" ][ !data.run ? 0 : 1 ];
     };
     updateSet();
     setButton.addEventListener( "click", _ =>
     {
-        data.action = !data.action;
+        data.run = !data.run;
         updateSet();
-        if( !data.action ) {
+        if( data.run ) {
             setButton.classList.add( "run" );
-            settings.classList.add( "run" );
-            fetch( "/set?direction=" + directionButton.textContent + "&speed=" + data.speed, { method: "post" } );
+            run();
         }
         else {
             setButton.classList.remove( "run" );
-            settings.classList.remove( "run" );
             fetch( "/set?direction=forward&speed=0", { method: "post" } );
         }
     } );
@@ -36,6 +36,8 @@ function OnLoad()
     const updateSpeed = _ =>
     {
         speedLabel.textContent = data.speed;
+        if( data.run )
+            run();
     };
     updateSpeed();
 
@@ -53,6 +55,8 @@ function OnLoad()
     const updateDirection = _ =>
     {
         directionButton.textContent = [ "forward", "backward" ][ data.direction ? 0 : 1 ];
+        if( data.run )
+            run();
     };
     updateDirection();
     directionButton.addEventListener( "click", _ =>

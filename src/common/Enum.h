@@ -45,4 +45,4 @@ private:
 };
 
 
-#define EnumValue( _value ) { _value, "" # _value }
+#define EnumValue( _enum, _value ) { _enum::_value, "" # _value }
