@@ -1,0 +1,69 @@
+html, body {
+    margin: 0;
+    padding: 0;
+	width: 100%;
+	height: 100%;
+	font-family: "Verdana", sans-serif;
+	font-size: 18px;
+    overflow: hidden;
+	background-color: #f3f3f3;
+	user-select: none;
+	white-space: nowrap;
+}
+
+body {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+h1 {
+    font-size: 32px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.line {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+}
+
+button {
+    min-width: 150px;
+    font-weight: bold;
+    text-transform: uppercase;
+    padding: 8px;
+	font-size: 18px;
+    border-radius: 4px;
+    border: 1px solid black;
+    cursor: pointer;
+}
+
+button.run {
+    background-color: #ff9f9f;
+}
+
+#settings {
+    display: flex;
+	flex-direction: row;
+}
+
+#settings.run {
+    opacity: 0.5;
+    pointer-events: none;
+}
+
+label {
+    padding: 8px;
+}
+
+#speedLabel {
+    font-weight: bold;
+    width: 25px;
+}
+
+input {
+    width: 200px;
+    margin: 8px;
+}
