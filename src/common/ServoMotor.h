@@ -26,14 +26,13 @@ public:
 
 public:
     void Stop();
-
-    // speed between [1,90]
     void Rotate( const eDirection _direction, const unsigned _speed );
 
 private:
     void _Set( const int _value );
 
 private:
+    const int m_pivot;
     Servo m_servo;
 };
 
@@ -41,4 +40,6 @@ private:
 struct ServoMotor::Parameters
 {
     const int pin;
+    const int pivot;
+    const int max;
 };

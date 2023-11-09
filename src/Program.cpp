@@ -29,7 +29,7 @@ void Program::Setup( Parameters && _parameters )
     // setup "set" service:
     auto & service_set{ m_parameters.emplace( "set", ServiceParameters{ [ this ]( const auto & _parameters ) { return _Service_Set( _parameters ); } } ).first->second };
     service_set.parameters.emplace( "direction", std::make_unique< WebServer::Service::Parameter< Enum< ServoMotor::eDirection > > >( ServoMotor::Directions() ) );
-    service_set.parameters.emplace( "speed", std::make_unique< WebServer::Service::Parameter< unsigned > >( 0, 90 ) );
+    service_set.parameters.emplace( "speed", std::make_unique< WebServer::Service::Parameter< unsigned > >( 0, _parameters.servoMotor.max ) );
 
     // build services:
     for( const auto & parameter : m_parameters )

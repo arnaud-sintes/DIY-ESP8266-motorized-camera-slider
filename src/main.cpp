@@ -1,6 +1,5 @@
 #include "Program.h"
 
-// TODO fix servomotor rotation
 
 Program program;
 
@@ -13,6 +12,8 @@ void setup()
         },
         .servoMotor{
             .pin{ 16 },
+            .pivot{ 96 },
+            .max{ 8 },
         },
         .wifiAP{
             .ssid{ "slider" },

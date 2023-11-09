@@ -7,6 +7,7 @@
 
 
 ServoMotor::ServoMotor( const Parameters & _parameters )
+    : m_pivot{ _parameters.pivot }
 {
     Log( "Attaching servomotor on pin " + std::to_string( _parameters.pin ) + "..." );
 
@@ -39,12 +40,11 @@ void ServoMotor::Stop()
 void ServoMotor::Rotate( const eDirection _direction, const unsigned _speed )
 {
     // value depend on direction:
-    // [0,89] -> backward, [91,180] -> forward
     int value{ static_cast< int >( _speed ) };
     if( _direction == eDirection::forward )
-        value += 90;
+        value += m_pivot;
     else
-        value = 90 - value;
+        value = m_pivot - value;
     _Set( value );
 }
 
@@ -52,6 +52,5 @@ void ServoMotor::Rotate( const eDirection _direction, const unsigned _speed )
 void ServoMotor::_Set( const int _value )
 {
     // write servo value:
-    LogDebug( "Servo write " + std::to_string( _value ) );
     m_servo.write( _value );
 }

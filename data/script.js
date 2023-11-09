@@ -1,6 +1,6 @@
 var data = {
     run: false,
-    speed: 1,
+    speed: 2,
     direction: true,
 };
 
