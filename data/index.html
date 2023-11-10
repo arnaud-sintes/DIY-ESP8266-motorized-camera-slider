@@ -1,19 +1,32 @@
 <!DOCTYPE html>
-<html lang="en-US">
-    <head>
-        <meta charset="utf-8">
-        <title>slider</title>
-        <link href="style.css" rel="stylesheet">
-        <script type="text/javascript" src="script.js"></script>
-    </head>
-    <body onload="OnLoad()">
-        <h1>slider control</h1>
-        <button id="setButton"></button>
-        <div class="line">
-            <label>speed</label>
-            <label id="speedLabel"></label>
-        </div>
-        <input id="speedInput" type="range" min="2" max="8" step="1"></input>
-        <button id="directionButton"></button>
-    </body>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="text/javascript" src="script.js"></script>
+    <link rel="stylesheet" href="skeleton.css">
+    <title>Slider</title>
+</head>
+<body onload="OnLoad()">
+<div class="container">
+    <header>
+        <h1>Slider control</h1>
+    </header>
+    <section>
+        <button id="setButton" class="button-primary u-full-width">Run</button>
+    </section>
+    <section>
+		<div class="row">
+			<div class="one-half column"><label>Speed:</label></div>
+			<div class="one-half column"><label id="speedLabel" class="u-pull-right"></label></div>
+		</div>        
+    </section>
+    <section>
+        <input id="speedInput" type="range" class="u-full-width" min="2" max="8" step="1">
+    </section>
+    <section>
+        <button id="directionButton" class="u-full-width">Forward</button>
+    </section>
+</div>
+</body>
 </html>
